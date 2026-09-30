@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oscar Canales | Game programmer</title>
+<meta name="description" content="Oscar Canales is a game programmer. See the games and projects he has worked on.">
+<link rel="icon" href="data:,">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#111513;--card:#1a201e;--ink:#e9efec;--muted:#9aa8a2;--line:#2a3230;--accent:#4fd1b0;--on-accent:#0b1512}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f4ef;--card:#ffffff;--ink:#1d2321;--muted:#5d6864;--line:#e2ded5;--accent:#0b7a64;--on-accent:#ffffff}
+*,*::before,*::after{box-sizing:border-box}
+html:has(dialog[open]){overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Rubik,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+.bar{display:flex;justify-content:flex-end;padding-top:1.25rem}
+.switch{display:flex;align-items:center;gap:.6rem;background:none;border:0;color:var(--muted);font:inherit;font-size:.9rem;cursor:pointer;padding:.25rem 0}
+.track{width:2.6rem;height:1.4rem;border-radius:1rem;background:var(--line);position:relative;transition:background .2s}
+.track::after{content:"";position:absolute;top:.2rem;left:.2rem;width:1rem;height:1rem;border-radius:50%;background:var(--ink);transition:transform .2s}
+.switch[aria-checked=true] .track{background:var(--accent)}
+.switch[aria-checked=true] .track::after{transform:translateX(1.2rem);background:var(--on-accent)}
+.switch:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:.5rem}
+header{padding:3rem 0 3rem}
+h1{font-size:clamp(2.6rem,8vw,4.5rem);line-height:1;margin:0 0 1rem;font-weight:700;letter-spacing:-.03em}
+.intro{font-size:1.3rem;max-width:36rem;margin:0 0 1.5rem}
+.button{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:500;padding:.7rem 1.4rem;border-radius:2rem}
+.button:hover{opacity:.9}
+h2{font-size:1.8rem;margin:0 0 1.5rem;letter-spacing:-.01em}
+section{padding:2.5rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1.5rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.thumb{aspect-ratio:16/10;background-color:#26443e;background-size:cover;background-position:center;background-repeat:no-repeat}
+.c1{background-color:#0b7a64}.c2{background-color:#c2571a}.c3{background-color:#5b4bb7}.c4{background-color:#1f6f9f}.c5{background-color:#a3324f}.c6{background-color:#8a6d12}
+.text{padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.card h3{margin:0;font-size:1.25rem}
+.card p{margin:0;color:var(--muted);flex:1}
+.tag{font-size:.85rem;color:var(--accent);font-weight:500}
+.more{font-weight:500;color:var(--accent)}
+dialog{border:1px solid var(--line);border-radius:1rem;background:var(--card);color:var(--ink);padding:0;width:min(40rem,calc(100% - 2rem));max-height:calc(100% - 2rem);overflow:auto;box-shadow:0 1.5rem 4rem rgba(0,0,0,.45)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog[open]{animation:pop .18s ease}
+@keyframes pop{from{opacity:0;transform:translateY(.75rem) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){dialog[open]{animation:none}.card{transition:none}}
+.close{position:absolute;top:.75rem;right:.75rem;width:2.4rem;height:2.4rem;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:1.5rem;line-height:1;cursor:pointer}
+.close:hover{background:rgba(0,0,0,.8)}
+.close:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.modal-text{padding:1.5rem 1.75rem 1.9rem;display:flex;flex-direction:column;gap:.75rem;align-items:flex-start}
+.modal-text h3{margin:0;font-size:1.8rem;line-height:1.2}
+.modal-text p{margin:0}
+.timeline{list-style:none;margin:0;padding:0 0 0 2rem;position:relative}
+.timeline li{position:relative;padding-bottom:2rem}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-2rem;top:.3rem;width:1rem;height:1rem;border-radius:50%;background:var(--bg);border:3px solid var(--accent);z-index:1}
+.timeline li.now::before{background:var(--accent)}
+.timeline li:not(:last-child)::after{content:"";position:absolute;left:calc(-1.5rem - 1px);top:1.3rem;bottom:-.3rem;width:2px;background:var(--line)}
+.when{display:block;color:var(--accent);font-size:.9rem;font-weight:500}
+.timeline h3{margin:0;font-size:1.15rem}
+.timeline p{margin:.25rem 0 0;color:var(--muted);max-width:38rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:0;list-style:none}
+.chips li{background:var(--card);border:1px solid var(--line);border-radius:2rem;padding:.35rem 1rem;font-size:.95rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem 1.75rem;padding:0;margin:1rem 0 0;list-style:none;font-weight:500}
+footer{padding:2rem 0 4rem;color:var(--muted);font-size:.9rem}
+@media (max-width:40rem){
+  .grid{grid-template-columns:repeat(2,1fr);gap:.75rem}
+  .card .text{padding:.75rem .85rem 1rem;gap:.25rem}
+  .card .text p,.card .more{display:none}
+  .card h3{font-size:1.05rem;line-height:1.3}
+  .tag{font-size:.75rem;line-height:1.35}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap bar">
+  <button class="switch" id="themeSwitch" type="button" role="switch" aria-checked="true"><span>Dark mode</span><span class="track"></span></button>
+</div>
+
+<header>
+  <div class="wrap">
+    <h1>Oscar Canales</h1>
+    <p class="intro">I'm a game programmer. I make the parts of a game that make it work and feel good to play.</p>
+    <a class="button" href="#projects">See my projects</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="projects">
+  <h2>Projects</h2>
+  <!-- To add a project: copy one whole block from <article> to </article>, paste it after the last one, then change the words, the link and the picture name. The text inside "details" appears in the pop up. -->
+  <div class="grid">
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c1" style="background-image:url('images/realm-paradox.gif')"></div>
+      <div class="text">
+        <span class="tag">Final degree project, Unity</span>
+        <h3>Realm Paradox</h3>
+        <p>A game set in four dimensions, where you explore and play with shapes that cannot exist in our world.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>Realm Paradox is a game set in four dimensions. You explore and interact with 4D objects, shapes that cannot exist in our world, and see them on a normal screen.</p>
+        <p>I built it in Unity and used a technique called raymarching to draw the 4D space. It was my final degree project.</p>
+        <a class="button" href="https://github.com/Osvak/4D-Game-TFG" target="_blank" rel="noopener">Visit project</a>
+      </div>
+    </article>
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c2" style="background-image:url('images/dune-fremens-rising.gif')"></div>
+      <div class="text">
+        <span class="tag">Custom engine, 34-person team</span>
+        <h3>Dune: Fremen's Rising</h3>
+        <p>A strategy game set in the world of Dune, running on an engine we built from scratch.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>A real-time strategy game set in the Dune universe, made by a team of 34 people.</p>
+        <p>It runs on a custom engine we wrote from scratch in C++ and SDL, and I worked on the engine's core systems.</p>
+        <a class="button" href="https://dune-fermen-s-rising-web.vercel.app/" target="_blank" rel="noopener">Visit project</a>
+      </div>
+    </article>
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c3" style="background-image:url('images/mascares-i-marquesos.jpg')"></div>
+      <div class="text">
+        <span class="tag">VR, Multiplayer, Quest 2</span>
+        <h3>Màscares &amp; Marquesos</h3>
+        <p>An online VR game for Quest 2, made for the Giravolt program of the Generalitat de Catalunya.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>An online multiplayer VR game inspired by popular social deduction games. It runs natively on Meta Quest 2, with smooth online play and good performance on standalone headsets.</p>
+        <p>It was made as part of the Giravolt program of the Generalitat de Catalunya, which uses new technology to promote cultural heritage.</p>
+        <a class="button" href="https://github.com/Makinilla-maker/Giravolt2023" target="_blank" rel="noopener">Visit project</a>
+      </div>
+    </article>
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c4" style="background-image:url('images/vackrooms.jpg')"></div>
+      <div class="text">
+        <span class="tag">VR, Gameplay programmer</span>
+        <h3>VackRooms</h3>
+        <p>A VR game set in the Backrooms, where I programmed how you interact with the world.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>A VR game set in the Backrooms, made by a team of 4.</p>
+        <p>I was the gameplay programmer. I built how you pick up objects, interact with the environment, move around by teleporting, and a mechanic for revealing hidden objects.</p>
+        <a class="button" href="https://github.com/Osvak/VackRooms" target="_blank" rel="noopener">Visit project</a>
+      </div>
+    </article>
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c5" style="background-image:url('images/outside.jpg')"></div>
+      <div class="text">
+        <span class="tag">Game jam winner, 48 hours</span>
+        <h3>Outside</h3>
+        <p>A platform game made in just 48 hours by a team of 5.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>A 2.5D platform game made in 48 hours by a team of 5 during the Gran CITM Game Jam.</p>
+        <p>It won the 5th edition of the jam.</p>
+        <a class="button" href="https://mhf-13.itch.io/outside" target="_blank" rel="noopener">Play the game</a>
+      </div>
+    </article>
+
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c6" style="background-image:url('images/turbotribble.jpg')"></div>
+      <div class="text">
+        <span class="tag">C++ and SDL</span>
+        <h3>TurboTribble</h3>
+        <p>A 3D game engine with the tools to build and edit scenes.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>A 3D game engine written in C++ and SDL.</p>
+        <p>It has a scene hierarchy where objects can be grouped and reorganized, tools to move, rotate and scale objects, resource management, scene saving, and a play, pause and step preview.</p>
+        <a class="button" href="https://github.com/Osvak/TurboTribble" target="_blank" rel="noopener">Visit project</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <h2>Work and education</h2>
+  <ul class="timeline">
+    <li class="now">
+      <span class="when">June 2025 to now</span>
+      <h3>Nordcurrent, Mid Programmer</h3>
+      <p>Building the core simulation systems of an unreleased game, made to run fast on many platforms.</p>
+    </li>
+    <li>
+      <span class="when">October 2023 to June 2025</span>
+      <h3>Zitro Games, Lead Programmer</h3>
+      <p>Started as a game programmer and became Lead Programmer, leading a team of 5 that shipped slot games. I also built tools that helped the whole team work faster.</p>
+    </li>
+    <li>
+      <span class="when">2023</span>
+      <h3>Bachelor's Degree in Game Design &amp; Development</h3>
+      <p>Universitat Politècnica de Catalunya.</p>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>What I work with</h2>
+  <ul class="chips">
+    <li>Unity</li><li>Unreal Engine</li><li>Godot</li>
+    <li>C#</li><li>C++</li><li>Python</li>
+    <li>Virtual reality</li><li>Blender</li><li>Photoshop</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Get in touch</h2>
+  <p>Based in Vilnius and open to relocation. Reach out for jobs, questions or projects.</p>
+  <ul class="links">
+    <li><a href="mailto:oscarcanales2001@gmail.com">oscarcanales2001@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/oscarcanalesv/">LinkedIn</a></li>
+    <li><a href="https://github.com/Osvak">GitHub</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Oscar Canales</div>
+</footer>
+
+<dialog id="modal" aria-labelledby="modalTitle">
+  <button class="close" id="closeModal" type="button" aria-label="Close">&times;</button>
+  <div id="modalBody"></div>
+</dialog>
+
+<script>
+var root=document.documentElement,btn=document.getElementById("themeSwitch");
+function showState(){var dark=root.dataset.theme!=="light";btn.setAttribute("aria-checked",dark);btn.firstChild.textContent=dark?"Dark mode":"Light mode"}
+btn.addEventListener("click",function(){
+  var next=root.dataset.theme==="light"?"dark":"light";
+  root.dataset.theme=next;
+  try{localStorage.setItem("theme",next)}catch(e){}
+  showState();
+});
+showState();
+
+var modal=document.getElementById("modal"),body=document.getElementById("modalBody");
+function openProject(card){
+  var thumb=card.querySelector(".thumb");
+  body.innerHTML='<div class="'+thumb.className+'" style="'+thumb.getAttribute("style")+'"></div>'+
+    '<div class="modal-text"><span class="tag">'+card.querySelector(".tag").innerHTML+'</span>'+
+    '<h3 id="modalTitle">'+card.querySelector("h3").innerHTML+'</h3>'+
+    card.querySelector(".details").innerHTML+'</div>';
+  modal.showModal();
+  modal.scrollTop=0;
+}
+document.querySelectorAll(".card").forEach(function(card){
+  card.addEventListener("click",function(){openProject(card)});
+  card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openProject(card)}});
+});
+modal.addEventListener("click",function(e){if(e.target===modal)modal.close()});
+document.getElementById("closeModal").addEventListener("click",function(){modal.close()});
+</script>
+</body>
+</html>
