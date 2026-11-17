@@ -98,6 +98,23 @@ footer{padding:2rem 0 4rem;color:var(--muted);font-size:.9rem}
   <!-- To add a project: copy one whole block from <article> to </article>, paste it after the last one, then change the words, the link and the picture name. The text inside "details" appears in the pop up. -->
   <div class="grid">
 
+    <!-- 0. Flocking2D -->
+    <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
+      <div class="thumb c4" style="background-image:url('images/flocking2d.png')"></div>
+      <div class="text">
+        <span class="tag">Unity DOTS, 10,000 birds</span>
+        <h3>Flocking2D</h3>
+        <p>A bird flocking simulation that runs up to 10,000 birds smoothly, playable in the browser.</p>
+        <span class="more">Learn more</span>
+      </div>
+      <div class="details" hidden>
+        <p>A 2D bird flocking simulation where up to 10,000 birds move together. Each bird only looks at the birds near it: it tries to fly the same way, stay with the group and not crash. Nothing tells the flock what shape to make, so the groups form, split and merge on their own.</p>
+        <p>I built it in Unity 6 with DOTS (Entities, Jobs and Burst). A spatial hash grid lets each bird find its nearest neighbors quickly, the work is spread across all CPU cores, and the birds are drawn with GPU instancing and a custom shader.</p>
+        <p>You can follow a single bird, pull the flock with the mouse, switch between presets and change every setting while it runs.</p>
+        <a class="button" href="https://osvak.itch.io/flocking2d" target="_blank" rel="noopener">Play the game</a>
+      </div>
+    </article>
+
     <!-- 1. Realm Paradox -->
     <article class="card" role="button" tabindex="0" aria-haspopup="dialog">
       <div class="thumb c1" style="background-image:url('images/realm-paradox.gif')"></div>
