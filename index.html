@@ -108,9 +108,8 @@ footer{padding:2rem 0 4rem;color:var(--muted);font-size:.9rem}
         <span class="more">Learn more</span>
       </div>
       <div class="details" hidden>
-        <p>A 2D bird flocking simulation where up to 10,000 birds move together. Each bird only looks at the birds near it: it tries to fly the same way, stay with the group and not crash. Nothing tells the flock what shape to make, so the groups form, split and merge on their own.</p>
-        <p>I built it in Unity 6 with DOTS (Entities, Jobs and Burst). A spatial hash grid lets each bird find its nearest neighbors quickly, the work is spread across all CPU cores, and the birds are drawn with GPU instancing and a custom shader.</p>
-        <p>You can follow a single bird, pull the flock with the mouse, switch between presets and change every setting while it runs.</p>
+        <p>A 2D bird flocking simulation where up to 10,000 birds react only to the birds near them, so the groups form, split and merge on their own.</p>
+        <p>I built it in Unity 6 with DOTS, using a spatial hash grid to find neighbors fast and GPU instancing to draw the birds.</p>
         <a class="button" href="https://osvak.itch.io/flocking2d" target="_blank" rel="noopener">Play the game</a>
       </div>
     </article>
